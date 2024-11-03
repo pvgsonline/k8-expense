@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: expense
+  name: frontend
+  labels:
+    app: frontend
+    tier: web
+    project: expense
+spec:    
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+      tier: web
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: frontend
+        tier: web
+        project: expense
+    spec:
+      containers:
+        - name: frontend
+          image: pvgsonline/frontend:v1
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: frontend
+    tier: web
+    project: expense
+  ports:
+  - name: frontend-port
+    protocol: TCP
+    port: 80
+    targetPort: 80
+  
