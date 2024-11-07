@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: joindevops/backend:v1
+        image: pvgsonline/backend:v1
         resources:
           requests:
             cpu: 100m

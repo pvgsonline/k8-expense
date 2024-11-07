@@ -29,6 +29,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: frontend
+  namespace: expense
 spec:
   type: LoadBalancer
   selector:
