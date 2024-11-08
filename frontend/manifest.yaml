@@ -23,7 +23,8 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: mahalakshmi2997/frontend:v1
+          #image: mahalakshmi2997/frontend:v1
+          image: pvgsonline/frontend:v1
 ---
 kind: Service
 apiVersion: v1
