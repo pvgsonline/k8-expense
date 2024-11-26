@@ -50,4 +50,21 @@ spec:
     protocol: TCP
     port: 80
     targetPort: 80
+---
+apiVersion: apps/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend
+  namespace: expense
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: frontend
+  maxReplicas: 10
+  minReplicas: 1
+  TargetCPUUtilizationPercentage: 15
+
+
+
   
